@@ -3,31 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アラームアプリ</title>
+  <title>ポケモン図鑑</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>アラームアプリ</h1>
+  <div class="pokedex">
+    <header>
+      <div class="logo">
+        <span class="pokeball-icon"></span>
+        <h1>ポケモン図鑑</h1>
+      </div>
+    </header>
 
-    <div class="clock" id="clock">00:00:00</div>
+    <main>
+      <div class="card" id="card">
+        <div class="card-inner" id="card-inner">
+          <div class="idle-state" id="idle-state">
+            <p>ボタンを押してランダムなポケモンを表示</p>
+            <div class="pokeball-large"></div>
+          </div>
 
-    <div class="alarm-section">
-      <label for="alarm-time">アラーム時刻</label>
-      <input type="time" id="alarm-time" step="60">
-      <button id="toggle-btn" class="btn btn-set">セット</button>
-    </div>
+          <div class="pokemon-display hidden" id="pokemon-display">
+            <div class="pokemon-header">
+              <span class="pokemon-id" id="pokemon-id">#001</span>
+              <div class="type-badges" id="type-badges"></div>
+            </div>
+            <div class="pokemon-image-wrap">
+              <img class="pokemon-image" id="pokemon-image" src="" alt="">
+            </div>
+            <h2 class="pokemon-name" id="pokemon-name"></h2>
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">高さ</span>
+                <span class="info-value" id="pokemon-height"></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">重さ</span>
+                <span class="info-value" id="pokemon-weight"></span>
+              </div>
+            </div>
+            <div class="stats-section">
+              <h3>ステータス</h3>
+              <div class="stats" id="stats"></div>
+            </div>
+          </div>
 
-    <div class="status" id="status">アラームが設定されていません</div>
+          <div class="loading hidden" id="loading">
+            <div class="spinner"></div>
+            <p>読み込み中...</p>
+          </div>
 
-    <div class="alarm-list" id="alarm-list"></div>
-  </div>
+          <div class="error hidden" id="error">
+            <p id="error-msg">エラーが発生しました</p>
+          </div>
+        </div>
+      </div>
 
-  <div class="modal hidden" id="modal">
-    <div class="modal-content">
-      <p>アラームの時刻です！</p>
-      <button id="dismiss-btn" class="btn btn-dismiss">停止</button>
-    </div>
+      <button class="random-btn" id="random-btn">
+        <span class="btn-pokeball"></span>
+        ランダム表示
+      </button>
+    </main>
   </div>
 
   <script src="script.js"></script>
