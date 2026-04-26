@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: #16213e;
+  border-radius: 16px;
+  padding: 40px;
+  width: 360px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #a8d8ea;
+  letter-spacing: 0.05em;
+}
+
+.clock {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #e2e8f0;
+  letter-spacing: 0.04em;
+}
+
+.alarm-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alarm-section label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.alarm-section input[type="time"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  background: #0f3460;
+  color: #e2e8f0;
+  font-size: 1.5rem;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.alarm-section input[type="time"]:focus {
+  border-color: #a8d8ea;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-set {
+  background: #a8d8ea;
+  color: #1a1a2e;
+}
+
+.btn-cancel {
+  background: #e57373;
+  color: #fff;
+}
+
+.btn-dismiss {
+  background: #a8d8ea;
+  color: #1a1a2e;
+  width: auto;
+  padding: 10px 32px;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.status {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  min-height: 20px;
+}
+
+.status.active {
+  color: #a8d8ea;
+}
+
+.alarm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alarm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0f3460;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 1rem;
+}
+
+.alarm-item .time {
+  font-variant-numeric: tabular-nums;
+  color: #e2e8f0;
+}
+
+.alarm-item .remove-btn {
+  background: none;
+  border: none;
+  color: #e57373;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.alarm-item .remove-btn:hover {
+  background: rgba(229, 115, 115, 0.15);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #16213e;
+  border-radius: 16px;
+  padding: 40px 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  animation: pop 0.2s ease;
+}
+
+.modal-content p {
+  font-size: 1.3rem;
+  color: #a8d8ea;
+  font-weight: 600;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
